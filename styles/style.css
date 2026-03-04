@@ -1,5 +1,5 @@
 
-/* @import "./fonts.css"; */
+@import "./font.css";
 @import "./base/global.css";
 @import './base/body.css';
 @import './blocks/header.css';
@@ -11,8 +11,3 @@
 @import './blocks/mainAboutUs.css';
 @import './blocks/mainPrinter.css';
 @import './blocks/mainCats.css';
-
-
-
-
-/* @import './blocks/footer.css'; */
