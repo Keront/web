@@ -1,11 +1,18 @@
 
-@import "./fonts.css";
+/* @import "./fonts.css"; */
 @import "./base/global.css";
 @import './base/body.css';
 @import './blocks/header.css';
-@import './blocks/content.css';
+@import './base/content.css';
+@import './blocks/footer.css';
 
 @import './blocks/mainWithSlider.css';
+@import './blocks/mainGrid.css';
+@import './blocks/mainAboutUs.css';
+@import './blocks/mainPrinter.css';
+@import './blocks/mainCats.css';
 
 
-@import './blocks/footer.css';
+
+
+/* @import './blocks/footer.css'; */

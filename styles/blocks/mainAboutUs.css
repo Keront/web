@@ -1,0 +1,9 @@
+.mainAboutUs{
+    
+    margin-top: 200px;
+    max-width: 620px;
+    width: 620px;
+    height:672px;
+    display: flex;
+    flex-direction: column;
+}

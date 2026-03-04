@@ -1,19 +1,21 @@
 .mainWithSlider {
     position: relative;
     display: flex;
-    height: 900px;
+    padding-top: 650px;
+    width: 100%;
+    height: 100%;
+    background-image: url('/img/main/рабочий стол 1.png');
+    background-size: cover;             /* Растянет, чтобы заполнить всё пространство */
+    background-position: center;        /* Центрирует картинку */
+    background-repeat: no-repeat;       /* Чтобы картинка не дублировалась плиточкой */
+
 
 }
 
 .mainWithSlider__slider {
-    background-image: ('img/main/рабочий стол 1.png');
-    background-size: cover;             /* Растянет, чтобы заполнить всё пространство */
-    background-position: center;        /* Центрирует картинку */
-    background-repeat: no-repeat;       /* Чтобы картинка не дублировалась плиточкой */
-    background-attachment: fixed;       /* Опционально: картинка не будет скроллиться */
-    min-height: 100vh;
-    /* position: absolute; */
-    /* z-index: -1; */
+
+    position: absolute;
+    z-index: -1;
 }
 
 .mainWithSlider__text {
