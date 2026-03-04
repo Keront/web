@@ -1,10 +1,10 @@
 .mainGrid{
     
-    margin-top: 100px;
+    margin-top: 200px;
     max-width: 1300px;
     max-height: 1200px;
-    width: 1300px;
     height: 1200px;
+    width: 100%;
     display: flex;
     flex-direction: column;
 

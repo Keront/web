@@ -10,7 +10,7 @@
 }
 
 .header__content {
-
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,6 +32,7 @@
 }
 
 .header__menu {
+    overflow: hidden;
     width: 100%;
     min-height: 100px;
     background-color: rgb(89, 179, 156);
