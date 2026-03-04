@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/base/reset.css">
+    <link rel="stylesheet" href="./styles/style.css">
     <title>Document</title>
     <style>
         * {
@@ -16,20 +17,59 @@
         }
     </style>
 </head>
+
 <body>
     <header class="header">
         <div class="header__content">
-            
+            <img class="header__logo" src="img\logo.svg" alt="logo">
+            <div class="header__mainButtons">
+                <img class="header__loupe" src="img/header/лупа.svg" alt="loupe">
+                <img class="header__logo" src="img/header/профиль.svg" alt="profile">
+                <img class="header__logo" src="img/header/корзина.svg" alt="bucket">
+            </div>
         </div>
         <div class="header__menu">
-
+            <div class="header__link">
+                <p class="header__linkText">Дом и офис</p><img src="img/header/Стрелка.svg">
+            </div>
+            <div class="header__link">
+                <p class="header__linkText">Цифровое пространство</p><img src="img/header/Стрелка.svg">
+            </div>
+            <div class="header__link">
+                <p class="header__linkText">Художественные дополнения</p><img src="img/header/Стрелка.svg">
+            </div>
+            <div class="header__link">
+                <p class="header__linkText">Аксессуары</p>
+                <img src="img/header/Стрелка.svg">
+            </div>
+            <div class="header__link">
+                <p class="header__linkText">О нас</p><img src="img/header/Стрелка.svg">
+            </div>
         </div>
     </header>
     <main>
-
+        <div class="mainWithSlider">
+            <div class="mainWithSlider__slider">
+                <!-- <img src="img/main/рабочий стол 1.png"> -->
+            </div>
+            <div class="mainWithSlider__text">
+                <h1 class="mainWithSlider__textHeader">Сделай свой рабочий стол уютней</h1>
+                <p class="mainWithSlider__text">Можно просто перейти в категорию магазина и выбрать нужный товар</p>
+                <button class="mainWithSlider__goToStore">
+            </div>
+        </div>
+        <!-- <div class="block2">
+            <p class="block2__text">Покупайте по коллекциям</p>
+            <div class="block2__grid"></div>
+            <div class="block2_gridElement">
+                <div class="block2_gridElementImage"></div>
+                <div class="block2_gridElementText">Текст</div>
+            </div>
+        </div> -->
     </main>
     <footer>
 
     </footer>
 </body>
+
 </html>

@@ -1,26 +1,11 @@
 
 @import "./fonts.css";
 @import "./base/global.css";
-@import './blocks/header.css';
 @import './base/body.css';
-@import './blocks/footer.css';
+@import './blocks/header.css';
 @import './blocks/content.css';
-@import './blocks/starts.css';
 
-@import './blocks/featured-in.css';
+@import './blocks/mainWithSlider.css';
 
-@import './blocks/style.css';
-@import './blocks/plugins.css';
 
-@import './blocks/studio.css';
-
-@import './blocks/praise.css';
-
-@import './blocks/modal-window.css';
-
-@import './blocks/preloader.css';
-
-@import './blocks/h1--blue-color.css';
-@import './blocks/button--blue.css';
-@import './blocks/p--discription.css';
-@import './media/media_desktop.css';
+@import './blocks/footer.css';

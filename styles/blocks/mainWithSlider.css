@@ -1,0 +1,24 @@
+.mainWithSlider {
+    position: relative;
+    display: flex;
+    height: 900px;
+
+}
+
+.mainWithSlider__slider {
+    background-image: ('img/main/рабочий стол 1.png');
+    background-size: cover;             /* Растянет, чтобы заполнить всё пространство */
+    background-position: center;        /* Центрирует картинку */
+    background-repeat: no-repeat;       /* Чтобы картинка не дублировалась плиточкой */
+    background-attachment: fixed;       /* Опционально: картинка не будет скроллиться */
+    min-height: 100vh;
+    /* position: absolute; */
+    /* z-index: -1; */
+}
+
+.mainWithSlider__text {
+    max-height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
