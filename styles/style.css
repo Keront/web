@@ -1,4 +1,3 @@
-
 @import "./font.css";
 @import "./base/global.css";
 @import './base/body.css';
@@ -7,7 +6,9 @@
 @import './blocks/footer.css';
 
 @import './blocks/mainWithSlider.css';
-@import './blocks/mainGrid.css';
+@import './blocks/mainCollections.css';
 @import './blocks/mainAboutUs.css';
 @import './blocks/mainPrinter.css';
 @import './blocks/mainCats.css';
+
+@import './blocks/button.css'

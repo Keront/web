@@ -1,7 +1,15 @@
 @font-face {
-    font-family: 'Kannit';
-    src: url('../../fonts/KanitCyrillic.otf') format('otf');
+    font-family: 'Kanit';
+    src: url('../fonts/Kanit/Kanit-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kanit';
+    src: url('../fonts/Kanit/Kanit-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: ExtraBold;
     font-display: swap;
 }

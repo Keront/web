@@ -1,14 +1,33 @@
 .footer{
     margin-top: 200px;
-    padding: 50px;
     height: 800px;
     background-color: #F8F8F8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer__content{
-    justify-content: center;
+    max-height: 750px;
+    max-width: 1000px;
     height: 100%;
     display:flex;
     flex-direction: row;
-    flex:1;
+    gap:50px
+}
+
+.footer__blockLogo{
+    max-width: 300px;
+    width: 100%;
+}
+
+.footer__inputEmail{
+    height: 60px;
+    border-radius: 60px;
+}
+
+.footer__add{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
