@@ -16,7 +16,6 @@
     align-items: center;
     width: 100%;
     min-height: 100px;
-    background-color: rgb(173, 65, 65);
 }
 
 .header__logo {
@@ -35,7 +34,6 @@
     overflow: hidden;
     width: 100%;
     min-height: 100px;
-    background-color: rgb(89, 179, 156);
     display: flex;
     flex-direction: row;
     gap:30px;
