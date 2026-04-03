@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/base/reset.css">
+    <link rel="stylesheet" href="./node_modules/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/style.css">
     <title>Document</title>
     <style>
@@ -49,15 +51,21 @@
     </header>
     <main class="content">
         <div class="mainWithSlider">
-            <div class="mainWithSlider__slider">
-                <!-- <img src="img/main/рабочий стол 1.png"> -->
+            <div class="mainWithSlider__slider swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="img/main/рабочий стол 1.png"></div>
+                    <div class="swiper-slide"><img src="img/main/рабочий стол 2.png"></div>
+                    <div class="swiper-slide"><img src="img/main/рабочий стол 3.png"></div>
+                </div>
             </div>
             <div class="mainWithSlider__text">
                 <h1 class="mainWithSlider__textHeader">Сделай свой рабочий стол уютней</h1>
                 <p class="mainWithSlider__textText">Можно просто перейти в категорию магазина и выбрать нужный товар</p>
                 <button class="mainWithSlider__goToStore buttonMainGreen">ПЕРЕЙТИ В МАГАЗИН</button>
             </div>
-            <div class="mainWithSlider__sliderZone">удалить</div>
+            <div class="mainWithSlider__sliderZone">
+                <div class="swiper-pagination"></div>
+            </div>
         </div>
         <div class="mainCollections">
             <p class="mainCollections__header">Покупайте по коллекциям</p>
@@ -105,6 +113,8 @@
 
 
     </footer>
+    <script src="./node_modules/swiper/swiper-bundle.min.js"></script>
+    <script src="./scripts/script.js"></script>
 </body>
 
 </html>

@@ -1,14 +1,14 @@
 .mainWithSlider {
     position: relative;
     display: flex;
-    padding-top: 650px;
     width: 100%;
     height: 100%;
-    background-image: url('/img/main/рабочий стол 1.png');
+    /* background-image: url('/img/main/рабочий стол 1.png'); */
     background-size: cover;             /* Растянет, чтобы заполнить всё пространство */
     background-position: center;        /* Центрирует картинку */
     background-repeat: no-repeat;       /* Чтобы картинка не дублировалась плиточкой */
     flex-direction: column;
+    justify-content: flex-end;
 
 }
 
@@ -41,4 +41,27 @@
     margin-bottom: 22px;
     display: flex;
     justify-content: center;
+}
+
+/* Убираем стандартное позиционирование Swiper для пагинации */
+.mainWithSlider__sliderZone .swiper-pagination {
+    position: static; 
+    display: flex;
+    gap: 8px;
+}
+
+/* Делаем прямоугольники */
+.mainWithSlider__sliderZone .swiper-pagination-bullet {
+    width: 30px;         /* Ширина */
+    height: 5px;         /* Высота */
+    border-radius: 0;    /* Убираем круги */
+    background: #ccc;    /* Цвет неактивных */
+    opacity: 1;
+    cursor: pointer;
+}
+
+/* Активный прямоугольник */
+.mainWithSlider__sliderZone .swiper-pagination-bullet-active {
+    background: green;   /* Твой цвет */
+    width: 45px;         /* Можно сделать чуть длиннее */
 }
