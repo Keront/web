@@ -49,6 +49,10 @@
     gap:5px;
     display: flex;
 }
+
+.header__linkText{
+ font-size: 20px;
+}
 .header__arrow{
     
 }

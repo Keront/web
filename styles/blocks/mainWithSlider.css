@@ -8,7 +8,7 @@
     background-size: cover;             /* Растянет, чтобы заполнить всё пространство */
     background-position: center;        /* Центрирует картинку */
     background-repeat: no-repeat;       /* Чтобы картинка не дублировалась плиточкой */
-
+    flex-direction: column;
 
 }
 
@@ -19,8 +19,26 @@
 }
 
 .mainWithSlider__text {
+    position: relative;
+    margin:20px;
     max-height: 900px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    color: white;
+    gap: 10px
+}
+
+.mainWithSlider__goToStore{
+    color: white;
+    font-size: 24px;
+    background-color: #B3D6B1;
+    max-width: 350px;
+    font-weight: 400;
+}
+
+.mainWithSlider__sliderZone{
+    margin-bottom: 22px;
+    display: flex;
+    justify-content: center;
 }

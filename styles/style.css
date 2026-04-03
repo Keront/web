@@ -1,6 +1,8 @@
 @import "./font.css";
 @import "./base/global.css";
+
 @import './base/body.css';
+
 @import './blocks/header.css';
 @import './base/content.css';
 @import './blocks/footer.css';
