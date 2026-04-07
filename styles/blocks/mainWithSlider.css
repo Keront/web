@@ -2,11 +2,8 @@
     position: relative;
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 600px;
     /* background-image: url('/img/main/рабочий стол 1.png'); */
-    background-size: cover;             /* Растянет, чтобы заполнить всё пространство */
-    background-position: center;        /* Центрирует картинку */
-    background-repeat: no-repeat;       /* Чтобы картинка не дублировалась плиточкой */
     flex-direction: column;
     justify-content: flex-end;
 
@@ -16,6 +13,8 @@
 
     position: absolute;
     z-index: -1;
+    width: 100%;
+    height:100%;
 }
 
 .mainWithSlider__text {
@@ -43,25 +42,38 @@
     justify-content: center;
 }
 
-/* Убираем стандартное позиционирование Swiper для пагинации */
-.mainWithSlider__sliderZone .swiper-pagination {
-    position: static; 
-    display: flex;
-    gap: 8px;
-}
-
-/* Делаем прямоугольники */
 .mainWithSlider__sliderZone .swiper-pagination-bullet {
-    width: 30px;         /* Ширина */
-    height: 5px;         /* Высота */
-    border-radius: 0;    /* Убираем круги */
-    background: #ccc;    /* Цвет неактивных */
-    opacity: 1;
-    cursor: pointer;
+    width: 70px;           /* Ширина прямоугольника */
+    height: 8px;           /* Высота (толщина) линии */
+    border-radius: 0;      /* Убираем скругление, чтобы получился прямоугольник */
+    background-color: #ffffff; /* Светлый цвет */
+    opacity: 0.3;          /* Делаем его полупрозрачным (темно-прозрачный эффект на темном фоне) */
 }
 
-/* Активный прямоугольник */
+/* Стиль для активного прямоугольника */
 .mainWithSlider__sliderZone .swiper-pagination-bullet-active {
-    background: green;   /* Твой цвет */
-    width: 45px;         /* Можно сделать чуть длиннее */
+    opacity: 1;            /* Убираем прозрачность (становится ярко-светлым) */
+    background-color: #fff; /* Можно оставить белым или задать свой цвет (например, #B3D6B1) */
+}
+
+/* Общие стили для всех слайдов */
+.swiper-slide {
+    width: 100%;
+    height: 100%; /* Слайд растянется на всю высоту контейнера .mainWithSlider */
+    background-repeat: no-repeat;
+    background-size: cover;    /* Картинка заполнит весь блок без черных полос */
+    background-position: center; /* Центрируем изображение */
+}
+
+/* Пути к конкретным картинкам */
+.slide-1 {
+    background-image: url('../../img/main/рабочий\ стол\ 1.png');
+}
+
+.slide-2 {
+    background-image: url('../../img/main/рабочий\ стол\ 2.png');
+}
+
+.slide-3 {
+    background-image: url('../../img/main/рабочий\ стол\ 3.png');
 }

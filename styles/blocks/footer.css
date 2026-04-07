@@ -8,6 +8,7 @@
 }
 
 .footer__content{
+    overflow: hidden;
     max-height: 750px;
     max-width: 1000px;
     height: 100%;
