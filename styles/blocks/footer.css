@@ -18,6 +18,9 @@
 }
 
 .footer__blockLogo{
+    display:flex;
+    flex-direction: column;
+    gap:20px;
     max-width: 300px;
     width: 100%;
 }

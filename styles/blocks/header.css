@@ -15,7 +15,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 100px;
+    margin-top: 50px;
 }
 
 .header__logo {
@@ -33,26 +33,28 @@
 .header__menu {
     overflow: hidden;
     width: 100%;
-    min-height: 100px;
+    margin: 50px 0 50px;
     display: flex;
     flex-direction: row;
-    gap:30px;
+    
     align-items: center;
     justify-content: center;
+    gap: 40px;
 }
 
 .header__link{
-    max-width: 120px;
     text-align: center;
-    align-items: center;
-    justify-content: center;
     gap:5px;
     display: flex;
 }
 
+.header__linkArrow{
+    width: 22px;
+    background-image: url('/img/header/Стрелка.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .header__linkText{
  font-size: 20px;
-}
-.header__arrow{
-    
 }
