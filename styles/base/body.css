@@ -4,9 +4,8 @@ body{
     position: relative;
 }
 
-p, h1 {
+p, h1, button, input {
     font-family: 'Kanit', sans-serif;
-    letter-spacing: -5%;
 }
 
 p{

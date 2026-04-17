@@ -24,8 +24,9 @@
     flex-direction: column;
     justify-content: flex-end;
     color: white;
-    /* gap: 10px;
-    border-radius: 12px 12px 30px 30px; */
+    gap: 10px;
+    /* border-radius: 12px 12px 30px 30px; */
+    border-radius: 5px;
     backdrop-filter: blur(5px);
     background-color: #00000010;
     max-width: 500px;

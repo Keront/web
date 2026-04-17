@@ -2,10 +2,20 @@
     height: 60px;
     background-color: #EEBABB;
     border-radius: 60px;
+    color:white;
+    font-size: 24px;
 }
 
 .buttonMainGreen{
     height: 60px;
     background-color: #B3D6B1;
     border-radius: 60px;
+}
+
+.buttonMainWhite{
+    height: 48px;
+    background-color: #ffffff;
+    border-radius: 60px;
+    font-size: 24px;
+    font-weight: 400;
 }
