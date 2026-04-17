@@ -2,10 +2,42 @@
     
     margin-top: 200px;
     max-width: 1300px;
-    max-height: 1200px;
-    height: 1200px;
     width: 100%;
-    display: flex;
+    display:flex;
     flex-direction: column;
+    gap:20px;
 
+}
+.mainCollections__header{
+    font-size: 40px;
+    margin-left: 40px;
+}
+
+.mainCollections__items{
+    display:flex;
+    flex-wrap: wrap;
+    gap:20px;
+    justify-content: center;
+
+}
+
+.mainCollections__item{
+    flex: 1 1 350px;
+    max-width: 400px;
+    max-height: 550px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.mainCollections__itemImage{
+    max-height: 500px;
+}
+
+.mainCollections__itemText{
+    max-width: 400px;
+    height: 50px;
+    display:flex;
+    align-items: center;
+    font-size: 30px;
 }

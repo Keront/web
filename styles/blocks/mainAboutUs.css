@@ -1,8 +1,26 @@
 .mainAboutUs{
-    
     margin-top: 200px;
     max-width: 620px;
-    height:672px;
     display: flex;
     flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap:11px;
+}
+
+.mainAboutUs__header{
+    font-size: 40px;
+}
+
+.mainAboutUs__text{
+    font-size:24px;
+    font-weight: 200;
+    line-height: 150%;
+
+}
+
+.mainAboutUs__button{
+    width: 487px;
+    height: 83px;
+    
 }

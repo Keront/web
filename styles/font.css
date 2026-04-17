@@ -1,5 +1,13 @@
 @font-face {
     font-family: 'Kanit';
+    src: url('../fonts/Kanit/Kanit-Light.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kanit';
     src: url('../fonts/Kanit/Kanit-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
@@ -10,6 +18,6 @@
     font-family: 'Kanit';
     src: url('../fonts/Kanit/Kanit-ExtraBold.ttf') format('truetype');
     font-weight: 800;
-    font-style: ExtraBold;
+    font-style: normal;
     font-display: swap;
 }

@@ -3,6 +3,9 @@
 
 @import './base/body.css';
 
+@import './blocks/buttons.css';
+
+
 @import './blocks/header.css';
 @import './base/content.css';
 @import './blocks/footer.css';
@@ -12,5 +15,3 @@
 @import './blocks/mainAboutUs.css';
 @import './blocks/mainPrinter.css';
 @import './blocks/mainCats.css';
-
-@import './blocks/buttons.css'
