@@ -28,10 +28,11 @@
 .footer__blockLogoLogo{
 }
 .footer__blockLogoIconYT{
+    margin-left: 20px;
 
 }
 .footer__emailRegistrarion{
-    display:flex;
+    display:flex;justify-content: space-around;
     align-items: center;
 }
 .footer__inputEmail{
