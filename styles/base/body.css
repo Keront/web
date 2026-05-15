@@ -17,3 +17,7 @@ h1{
     font-size: 24px;
     font-weight: 800;
 }
+
+button{
+    cursor: pointer;
+}
