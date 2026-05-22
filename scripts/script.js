@@ -20,3 +20,23 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     });
 });
+
+function modalOpen() {
+    const modal = document.querySelector('.modal');
+    if (modal) {
+        modal.style.display = "flex";
+    }
+}
+function modalClose() {
+    const modal = document.querySelector('.modal');
+    if (modal) {
+        modal.style.display = "none";
+    }
+}
+setTimeout(() => {
+    const preloader = document.querySelector('.preloader');
+    if (preloader) {
+        preloader.innerHTML = '';
+        preloader.style.display = "none";
+    }
+}, 500);

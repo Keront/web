@@ -4,11 +4,6 @@
     width: 100%;
 }
 
-.header__content::before {
-    flex: 1;
-    content: "";
-}
-
 .header__content {
     overflow: hidden;
     display: flex;
@@ -28,16 +23,18 @@
     flex: 1;
     justify-content: flex-end;
     gap: 25px;
-    padding-right: 25px;
+    margin-right: 20px;
+}
+
+.header__logoProrile{
+    cursor:pointer;
 }
 
 .header__menu {
     overflow: hidden;
-    width: 100%;
-    margin: 50px 0 50px;
+    margin: 50px 10px;
     display: flex;
     flex-direction: row;
-    
     align-items: center;
     justify-content: center;
     gap: 40px;

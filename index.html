@@ -25,9 +25,9 @@
         <div class="header__content">
             <img class="header__logo" src="img\logo.svg" alt="logo">
             <div class="header__mainButtons">
-                <img class="header__loupe" src="img/header/лупа.svg" alt="loupe">
-                <img class="header__logo" src="img/header/профиль.svg" alt="profile">
-                <img class="header__logo" src="img/header/корзина.svg" alt="bucket">
+                <img class="header__loupeLoop" src="img/header/лупа.svg" alt="loupe">
+                <img class="header__logoProrile" onclick="modalOpen()" src="img/header/профиль.svg" alt="profile">
+                <img class="header__logoBucket" src="img/header/корзина.svg" alt="bucket">
             </div>
         </div>
         <div class="header__menu">
@@ -63,7 +63,7 @@
 
                 </div>
             </div>
-            <div class="mainWithSlider__text">
+            <div class="mainWithSlider__text background-shadow-smooth">
                 <h1 class="mainWithSlider__textHeader">Сделай свой рабочий стол уютней</h1>
                 <p class="mainWithSlider__textText">Можно просто перейти в категорию магазина и выбрать нужный товар</p>
                 <button class="mainWithSlider__goToStore buttonMainGreen">ПЕРЕЙТИ В МАГАЗИН</button>
@@ -116,7 +116,7 @@
 
         </div>
         <div class="mainPrinter">
-            <div class="mainPrinter__textBlock">
+            <div class="mainPrinter__textBlock background-shadow-smooth">
                 <h1 class="mainPrinter__textBlockHeader">Единственный в своем роде.</h1>
                 <p class="mainPrinter__textBlockText">Каждый продукт Site Name — единственный в своём роде, собранный
                     вручную командой Site Name.
@@ -126,9 +126,9 @@
             </div>
         </div>
         <div class="mainCats">
-            <div class="mainCats__textBlock">
+            <div class="mainCats__textBlock background-shadow-smooth">
                 <h1 class="mainCats__textBlockHeader">Создай уют.</h1>
-                <p class="mainCats__textBlockText">Каждый продукт Site Name — единственный в своём роде, собранный
+                <p class="mainCats__textBlockText">Единственный в своём роде, собранный
                     вручную командой Site Name.
                     Сочетая эстетику и функциональность, мы печатаем все наши изделия на 3D-принтере из переработанного
                     PLA-пластика.</p>
@@ -168,6 +168,36 @@
 
 
     </footer>
+    <div class="modal" onclick="modalClose()">
+        <div class="modal__content" onclick="event.stopPropagation()">
+            <div class="modal__form">
+                <h1 class="modal__form-registration">Регистрация</h1>
+                <form action="">
+                    <div class="modal__form-group">
+                        <label for="email">Email</label>
+                        <input class="modal__form-input" type="email" name="email" id="name">
+                    </div>
+                    <div class="modal__form-group">
+                        <label for="password">Пароль</label>
+                        <input class="modal__form-input " type="password" name="password" id="email">
+                    </div>
+                </form>
+                <button class="modal__btn buttonMainGreen" onclick="modalClose()">Продолжить</button>
+                <a class="modal__btn-close" onclick="modalClose()">Отмена</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="preloader">
+        <div id="ball-main">
+        </div>
+        <div class='ball-one loader--mod'>
+        </div>
+        <div class='ball-two loader--mod'>
+        </div>
+        <div class='ball-three loader--mod'>
+        </div>
+    </div>
     <script src="./node_modules/swiper/swiper-bundle.min.js"></script>
     <script src="./scripts/script.js"></script>
 </body>

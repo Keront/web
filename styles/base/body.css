@@ -4,7 +4,7 @@ body{
     position: relative;
 }
 
-p, h1, button, input {
+p, h1, a, button, input, label {
     font-family: 'Kanit', sans-serif;
 }
 
@@ -19,5 +19,8 @@ h1{
 }
 
 button{
-    cursor: pointer;
+    cursor:pointer;
+}
+input{
+    cursor:text;
 }

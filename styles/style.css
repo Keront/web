@@ -4,6 +4,10 @@
 @import './base/body.css';
 
 @import './blocks/buttons.css';
+@import './blocks/background.css';
+
+@import './blocks/modal-window.css';
+@import './blocks/preloader.css';
 
 
 @import './blocks/header.css';
