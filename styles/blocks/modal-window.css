@@ -1,7 +1,7 @@
 .modal {
     position: fixed;
-    display: none;
-    /* display: flex; */
+    /* display: none; */
+    display: flex;
     justify-content: center;
     align-items: center;
     top: 0;
@@ -9,7 +9,6 @@
     bottom: 0;
     left: 0;
     z-index: 100;
-    margin-top:-250px;
 }
 
 
@@ -67,6 +66,20 @@
     border-radius: 105px;
     padding: 10px;
 }
+
+.modal__form-error-email{
+    /* display:none; */
+    font-size:14px;
+    color:rgb(211, 0, 0);
+}
+
+.modal__form-error-password{
+    /* display:none; */
+    font-size:14px;
+    color:rgb(211, 0, 0);
+
+}
+
 .modal__btn-close{
     user-select:none;
     margin: 10px auto;
@@ -75,4 +88,29 @@
 .modal__btn {
     font-size: 24px;
     color:white;
+}
+
+.password-requirements__toggle {
+    cursor: pointer;
+    color: #333;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.password-requirements__list {
+    display:none;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #555;
+}
+.hidden {
+    display: none;
+}
+
+.error {
+    color: rgb(211, 0, 0);
+}
+
+.success {
+    color: green;
 }

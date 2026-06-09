@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="./styles/base/reset.css">
     <link rel="stylesheet" href="./node_modules/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/style.css">
     <title>Document</title>
     <!-- <style>
         * {
@@ -23,11 +22,12 @@
 <body>
     <header class="header">
         <div class="header__content">
+            <div class="header__spacer"></div>
             <img class="header__logo" src="img\logo.svg" alt="logo">
             <div class="header__mainButtons">
-                <img class="header__loupeLoop" src="img/header/лупа.svg" alt="loupe">
-                <img class="header__logoProrile" onclick="modalOpen()" src="img/header/профиль.svg" alt="profile">
-                <img class="header__logoBucket" src="img/header/корзина.svg" alt="bucket">
+                <img class="header__loupeLoop" src="./img/header/loop.svg" alt="loupe">
+                <img class="header__logoProrile" onclick="modalOpen()" src="./img/header/prifile.svg" alt="profile">
+                <img class="header__logoBucket" src="./img/header/bucket.svg" alt="bucket">
             </div>
         </div>
         <div class="header__menu">
@@ -57,9 +57,9 @@
         <div class="mainWithSlider">
             <div class="mainWithSlider__slider swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide slide-1"></div>
-                    <div class="swiper-slide slide-2"></div>
-                    <div class="swiper-slide slide-3"></div>
+                    <div class="slide-1 swiper-slide"></div>
+                    <div class="slide-2 swiper-slide"></div>
+                    <div class="slide-3 swiper-slide"></div>
 
                 </div>
             </div>
@@ -76,27 +76,27 @@
             <h1 class="mainCollections__header">Покупайте по коллекциям</h1>
             <div class="mainCollections__items">
                 <div class="mainCollections__item">
-                    <img class="mainCollections__itemImage" src="/img/main/collection/collection 0.png">
+                    <img class="mainCollections__itemImage" src="./img/main/collection/collection 0.png"">
                     <p class="mainCollections__itemText">Светильники</p>
                 </div>
                 <div class="mainCollections__item">
-                    <img class="mainCollections__itemImage" src="/img/main/collection/collection 1.png">
+                    <img class="mainCollections__itemImage" src="./img/main/collection/collection 1.png">
                     <p class="mainCollections__itemText">Художественные арты</p>
                 </div>
                 <div class="mainCollections__item">
-                    <img class="mainCollections__itemImage" src="/img/main/collection/collection 2.png">
+                    <img class="mainCollections__itemImage" src="./img/main/collection/collection 2.png">
                     <p class="mainCollections__itemText">Цифровые обои</p>
                 </div>
                 <div class="mainCollections__item">
-                    <img class="mainCollections__itemImage" src="/img/main/collection/collection 3.png">
+                    <img class="mainCollections__itemImage" src="./img/main/collection/collection 3.png">
                     <p class="mainCollections__itemText">Кейкапы</p>
                 </div>
                 <div class="mainCollections__item">
-                    <img class="mainCollections__itemImage" src="/img/main/collection/collection 4.png">
+                    <img class="mainCollections__itemImage" src="./img/main/collection/collection 4.png">
                     <p class="mainCollections__itemText">Коврики для мыши</p>
                 </div>
                 <div class="mainCollections__item">
-                    <img class="mainCollections__itemImage" src="/img/main/collection/collection 5.png">
+                    <img class="mainCollections__itemImage" src="./img/main/collection/collection 5.png">
                     <p class="mainCollections__itemText">Иконки приложений</p>
                 </div>
             </div>
@@ -175,11 +175,28 @@
                 <form action="">
                     <div class="modal__form-group">
                         <label for="email">Email</label>
-                        <input class="modal__form-input" type="email" name="email" id="name">
+                        <input class="modal__form-input" type="email" name="email" id="email">
+
+                        <p class="modal__form-error-email hidden"></p>
                     </div>
+
                     <div class="modal__form-group">
                         <label for="password">Пароль</label>
-                        <input class="modal__form-input " type="password" name="password" id="email">
+                        <input class="modal__form-input" type="password" name="password" id="password">
+
+                        <p class="modal__form-error-password hidden"></p>
+
+                        <div class="password-requirements">
+                            <p class="password-requirements__toggle" onclick="toggleRequirements()">
+                                Требования к паролю
+                            </p>
+
+                            <ul class="password-requirements__list">
+                                <li>Минимум 1 буква на латинице</li>
+                                <li>Минимум 1 цифра</li>
+                                <li>Длина пароля 8-16 символов</li>
+                            </ul>
+                        </div>
                     </div>
                 </form>
                 <button class="modal__btn buttonMainGreen" onclick="modalClose()">Продолжить</button>
