@@ -1,20 +1,88 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     const form = document.getElementById("registerForm");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
 
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+    let currentMode = "register";
 
-        const email = document.getElementById("email").value.trim();
-        const password = document.getElementById("password").value.trim();
+    /*
+    |--------------------------------------------------------------------------
+    | Проверяем авторизацию после F5
+    |--------------------------------------------------------------------------
+    */
+
+    const savedUser = localStorage.getItem("currentUser");
+
+    if (savedUser) {
+        showProfile(savedUser);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Проверка email
+    |--------------------------------------------------------------------------
+    */
+
+    emailInput.addEventListener("input", async () => {
+
+        const email = emailInput.value.trim();
+
+        if (!email.includes("@")) return;
 
         try {
+
             const response = await fetch("./api/server.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
+                    action: "checkEmail",
+                    email
+                })
+            });
+
+            const result = await response.json();
+
+            const slider = document.querySelector(".auth-switch");
+
+            if (result.exists) {
+                currentMode = "login";
+                slider.classList.add("login");
+            } else {
+                currentMode = "register";
+                slider.classList.remove("login");
+            }
+
+        } catch (error) {
+            console.error(error);
+        }
+
+    });
+
+    /*
+    |--------------------------------------------------------------------------
+    | Отправка формы
+    |--------------------------------------------------------------------------
+    */
+
+    form.addEventListener("submit", async (e) => {
+
+        e.preventDefault();
+
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+
+        try {
+
+            const response = await fetch("./api/server.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    action: currentMode,
                     email,
                     password
                 })
@@ -22,25 +90,76 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const result = await response.json();
 
-            if (result.success) {
+            if (!result.success) {
 
-                document.querySelector(".modal__form").innerHTML = `
-                    <h2>Регистрация завершена</h2>
+                const passwordError = document.querySelector(
+                    ".modal__form-error-password"
+                );
 
-                    <button
-                        class="modal__btn buttonMainGreen"
-                        onclick="modalClose()">
-                        Продолжить
-                    </button>
-                `;
+                passwordError.classList.remove("hidden");
+                passwordError.classList.remove("success");
+                passwordError.classList.add("error");
 
-            } else {
-                alert(result.message);
+                passwordError.textContent = result.message;
+
+                return;
             }
+
+            localStorage.setItem("currentUser", email);
+
+            showProfile(email);
 
         } catch (error) {
             console.error(error);
         }
+
     });
 
 });
+
+/*
+|--------------------------------------------------------------------------
+| Показ профиля
+|--------------------------------------------------------------------------
+*/
+
+function showProfile(email) {
+
+    const block = document.querySelector(".modal__formBlock");
+
+    block.innerHTML = `
+        <h1 class="modal__form-registration">
+            Вы успешно авторизовались
+        </h1>
+
+        <p class="profile-email">
+            ${email}
+        </p>
+
+        <button
+            class="modal__btn buttonMainGreen"
+            onclick="logout()">
+            Выйти
+        </button>
+
+        <a
+            class="modal__btn-close"
+            onclick="modalClose()">
+            Закрыть
+        </a>
+    `;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Выход
+|--------------------------------------------------------------------------
+*/
+
+function logout() {
+
+    localStorage.removeItem("currentUser");
+
+    location.reload();
+
+}

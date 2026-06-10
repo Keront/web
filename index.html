@@ -77,7 +77,7 @@
             <div class="mainCollections__items">
                 <div class="mainCollections__item">
                     <img class="mainCollections__itemImage" src="./img/main/collection/collection 0.png"">
-                    <p class="mainCollections__itemText">Светильники</p>
+                    <p class=" mainCollections__itemText">Светильники</p>
                 </div>
                 <div class="mainCollections__item">
                     <img class="mainCollections__itemImage" src="./img/main/collection/collection 1.png">
@@ -172,22 +172,41 @@
     <div class="modal hidden" onclick="modalClose()">
         <div class="modal__content" onclick="event.stopPropagation()">
             <div class="modal__formBlock">
-                <h1 class="modal__form-registration">Регистрация</h1>
-                <form class="modal__form" action="" id="registerForm">
+
+                <div class="auth-switch">
+                    <div class="auth-switch__slider"></div>
+
+                    <span class="auth-switch__item auth-switch__item-register">
+                        Регистрация
+                    </span>
+
+                    <span class="auth-switch__item auth-switch__item-login">
+                        Вход
+                    </span>
+                </div>
+
+                <form class="modal__form" id="registerForm">
+
                     <div class="modal__form-group">
+
                         <label for="email">Email</label>
-                        <input class="modal__form-input" type="email" name="email" id="email">
+
+                        <input class="modal__form-input" type="email" id="email" autocomplete="email">
 
                         <p class="modal__form-error-email hidden"></p>
+
                     </div>
 
                     <div class="modal__form-group">
+
                         <label for="password">Пароль</label>
-                        <input class="modal__form-input" type="password" name="password" id="password">
+
+                        <input class="modal__form-input" type="password" id="password" autocomplete="current-password">
 
                         <p class="modal__form-error-password hidden"></p>
 
                         <div class="password-requirements">
+
                             <p class="password-requirements__toggle" onclick="toggleRequirements()">
                                 Требования к паролю
                             </p>
@@ -197,11 +216,21 @@
                                 <li>Минимум 1 цифра</li>
                                 <li>Длина пароля 8-16 символов</li>
                             </ul>
+
                         </div>
+
                     </div>
-                    <button type="submit" class="modal__btn buttonMainGreen">Продолжить</button>
-                    <a class="modal__btn-close" onclick="modalClose()">Отмена</a>
-                </form>                
+
+                    <button type="submit" class="modal__btn buttonMainGreen">
+                        Продолжить
+                    </button>
+
+                    <a class="modal__btn-close" onclick="modalClose()">
+                        Отмена
+                    </a>
+
+                </form>
+
             </div>
         </div>
     </div>

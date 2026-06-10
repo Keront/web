@@ -46,6 +46,7 @@
     max-height: 100%;
     max-width: 300px;
     width: 100%;
+    gap:20px;
 
 }
 
@@ -111,4 +112,50 @@
 
 .success {
     color: green;
+}
+
+.auth-switch {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background: #e5e5e5;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    cursor: default;
+    user-select: none;
+    overflow: hidden;
+}
+
+.auth-switch__slider {
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    width: calc(50% - 4px);
+    height: 42px;
+    background: #f7e3e3;
+    border-radius: 999px;
+    transition: .3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+
+.auth-switch.login .auth-switch__slider {
+    transform: translateX(100%);
+}
+
+.auth-switch__item {
+    font-family: 'Kanit', sans-serif;
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.profile-email {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 18px;
+    word-break: break-word;
 }
