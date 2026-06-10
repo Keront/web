@@ -168,11 +168,12 @@
 
 
     </footer>
+
     <div class="modal" onclick="modalClose()">
         <div class="modal__content" onclick="event.stopPropagation()">
             <div class="modal__form">
                 <h1 class="modal__form-registration">Регистрация</h1>
-                <form action="">
+                <form action="" id="registerForm">
                     <div class="modal__form-group">
                         <label for="email">Email</label>
                         <input class="modal__form-input" type="email" name="email" id="email">
@@ -199,12 +200,12 @@
                         </div>
                     </div>
                 </form>
-                <button class="modal__btn buttonMainGreen" onclick="modalClose()">Продолжить</button>
+                <button type="submit" class="modal__btn buttonMainGreen">Продолжить</button>
                 <a class="modal__btn-close" onclick="modalClose()">Отмена</a>
             </div>
         </div>
-
     </div>
+
     <div class="preloader">
         <div id="ball-main">
         </div>
@@ -217,6 +218,7 @@
     </div>
     <script src="./node_modules/swiper/swiper-bundle.min.js"></script>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/server.js"></script>
 </body>
 
 </html>

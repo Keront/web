@@ -12,6 +12,12 @@
     background-color: #B3D6B1;
     border-radius: 60px;
     border-color: #B3D6B1;
+    
+}
+
+.buttonMainGreen:active{
+    background-color: #466145;
+
 }
 
 .buttonMainWhite{
