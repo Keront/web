@@ -1,7 +1,6 @@
 .modal {
     position: fixed;
-    /* display: none; */
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     top: 0;
@@ -10,8 +9,6 @@
     left: 0;
     z-index: 100;
 }
-
-
 .modal::before {
     content: "";
     position: absolute;
@@ -43,10 +40,9 @@
 .modal__form-registration{
     margin:0 auto;
 }
-.modal__form{
+.modal__formBlock{
     display: flex;
     flex-direction: column;
-    gap: 20px;
     max-height: 100%;
     max-width: 300px;
     width: 100%;
@@ -54,12 +50,17 @@
 }
 
 .modal__form-group {
-    margin-top:20px;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
 
+}
+.modal__form{
+    margin-top:20px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
 }
 
 .modal__form-input {
@@ -102,9 +103,6 @@
     margin-top: 10px;
     font-size: 13px;
     color: #555;
-}
-.hidden {
-    display: none;
 }
 
 .error {

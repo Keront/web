@@ -24,3 +24,7 @@ button{
 input{
     cursor:text;
 }
+
+.hidden {
+    display: none;
+}

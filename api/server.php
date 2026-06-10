@@ -1,5 +1,4 @@
 <?php
-
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
 
@@ -31,7 +30,9 @@ if (!file_exists($file)) {
 }
 
 $users = json_decode(file_get_contents($file), true);
-
+if (!is_array($users)) {
+    $users = [];
+}
 foreach ($users as $user) {
     if ($user["email"] === $email) {
         echo json_encode([
@@ -40,6 +41,26 @@ foreach ($users as $user) {
         ]);
         exit;
     }
+}
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo json_encode([
+        "success" => false,
+        "message" => "Некорректный email"
+    ]);
+    exit;
+}
+
+if (
+    strlen($password) < 8 ||
+    strlen($password) > 16 ||
+    !preg_match('/[A-Za-z]/', $password) ||
+    !preg_match('/\d/', $password)
+) {
+    echo json_encode([
+        "success" => false,
+        "message" => "Некорректный пароль"
+    ]);
+    exit;
 }
 
 $users[] = [

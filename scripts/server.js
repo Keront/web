@@ -22,15 +22,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const result = await response.json();
 
-            alert(result.message);
-
             if (result.success) {
-                form.reset();
-                modalclose();
+
+                document.querySelector(".modal__form").innerHTML = `
+                    <h2>Регистрация завершена</h2>
+
+                    <button
+                        class="modal__btn buttonMainGreen"
+                        onclick="modalClose()">
+                        Продолжить
+                    </button>
+                `;
+
+            } else {
+                alert(result.message);
             }
 
         } catch (error) {
-            alert("Ошибка сервера");
             console.error(error);
         }
     });

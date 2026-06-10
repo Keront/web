@@ -1,1 +1,22 @@
-[]
+[
+    {
+        "email": "user@mail.ru",
+        "password": "111111111q"
+    },
+    {
+        "email": "q@q.q",
+        "password": "qqqqqqq1"
+    },
+    {
+        "email": "q@q.q1",
+        "password": "qqqqqqq1"
+    },
+    {
+        "email": "q@q.q3",
+        "password": "qqqqqqq1"
+    },
+    {
+        "email": "q@q.q4",
+        "password": "qqqqqqq1"
+    }
+]
