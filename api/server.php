@@ -164,7 +164,70 @@ if ($action === "login") {
 
     exit;
 }
+/*
+|--------------------------------------------------------------------------
+| Лайки
+|--------------------------------------------------------------------------
+*/
 
+if ($action === "getLikes") {
+
+    $likesFile = "../data/likes.json";
+
+    if (!file_exists($likesFile)) {
+        file_put_contents(
+            $likesFile,
+            json_encode(["lamps" => 0])
+        );
+    }
+
+    $likes = json_decode(
+        file_get_contents($likesFile),
+        true
+    );
+
+    echo json_encode([
+        "success" => true,
+        "likes" => $likes["lamps"]
+    ]);
+
+    exit;
+}
+
+if ($action === "addLike") {
+
+    $likesFile = "../data/likes.json";
+
+    if (!file_exists($likesFile)) {
+        file_put_contents(
+            $likesFile,
+            json_encode(["lamps" => 0])
+        );
+    }
+
+    $likes = json_decode(
+        file_get_contents($likesFile),
+        true
+    );
+    
+
+    $likes["lamps"]++;
+
+    file_put_contents(
+        $likesFile,
+        json_encode(
+            $likes,
+            JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+        )
+    );
+
+    echo json_encode([
+        "success" => true,
+        "likes" => $likes["lamps"]
+    ]);
+
+    exit;
+}
 echo json_encode([
     "success" => false,
     "message" => "Неизвестное действие"

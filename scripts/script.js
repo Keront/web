@@ -136,3 +136,71 @@ function toggleRequirements() {
     const list = document.querySelector('.password-requirements__list');
     list.style.display = list.style.display === "block" ? "none" : "block";
 }
+
+document.addEventListener("DOMContentLoaded", async () => {
+
+    const btn = document.getElementById("lampLikeBtn");
+    const count = document.getElementById("lampLikeCount");
+
+    if (!btn || !count) return;
+
+    try {
+
+        const response = await fetch("./api/server.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                action: "getLikes"
+            })
+        });
+
+        const result = await response.json();
+
+        count.textContent = result.likes;
+
+    } catch (error) {
+        console.error(error);
+    }
+
+    if (localStorage.getItem("lampLiked")) {
+        btn.classList.add("liked");
+    }
+
+    btn.addEventListener("click", async () => {
+
+        if (localStorage.getItem("lampLiked")) {
+            return;
+        }
+
+        try {
+
+            const response = await fetch("./api/server.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    action: "addLike"
+                })
+            });
+
+            const result = await response.json();
+
+            count.textContent = result.likes;
+
+            localStorage.setItem(
+                "lampLiked",
+                "true"
+            );
+
+            btn.classList.add("liked");
+
+        } catch (error) {
+            console.error(error);
+        }
+
+    });
+
+});
