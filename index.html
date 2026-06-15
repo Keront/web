@@ -180,18 +180,21 @@
 
     <div class="modal hidden" onclick="modalClose()">
         <div class="modal__content" onclick="event.stopPropagation()">
+
             <div class="modal__formBlock">
 
-                <div class="auth-switch">
+                <div class="auth-switch" id="authSwitch">
+
                     <div class="auth-switch__slider"></div>
 
-                    <span class="auth-switch__item auth-switch__item-register">
+                    <button type="button" class="auth-switch__item active" id="registerTab">
                         Регистрация
-                    </span>
+                    </button>
 
-                    <span class="auth-switch__item auth-switch__item-login">
+                    <button type="button" class="auth-switch__item" id="loginTab">
                         Вход
-                    </span>
+                    </button>
+
                 </div>
 
                 <form class="modal__form" id="registerForm">
@@ -200,47 +203,83 @@
 
                         <label for="email">Email</label>
 
-                        <input class="modal__form-input" type="email" id="email" autocomplete="email">
+                        <input class="modal__form-input" type="email" id="email" autocomplete="username">
 
                         <p class="modal__form-error-email hidden"></p>
 
                     </div>
 
-                    <div class="modal__form-group">
+                    <!-- ПАРОЛЬ ДЛЯ ВХОДА -->
 
-                        <label for="password">Пароль</label>
+                    <div class="modal__form-group hidden" id="loginPasswordGroup">
 
-                        <input class="modal__form-input" type="password" id="password" autocomplete="current-password">
+                        <label for="loginPassword">Пароль</label>
+
+                        <input class="modal__form-input" type="password" id="loginPassword"
+                            autocomplete="current-password">
 
                         <p class="modal__form-error-password hidden"></p>
 
-                        <div class="password-requirements">
+                    </div>
 
-                            <p class="password-requirements__toggle" onclick="toggleRequirements()">
-                                Требования к паролю
-                            </p>
+                    <!-- ПАРОЛЬ ДЛЯ РЕГИСТРАЦИИ -->
 
-                            <ul class="password-requirements__list">
-                                <li>Минимум 1 буква на латинице</li>
-                                <li>Минимум 1 цифра</li>
-                                <li>Длина пароля 8-16 символов</li>
-                            </ul>
+                    <div class="modal__form-group" id="registerPasswordGroup">
 
-                        </div>
+                        <label for="registerPassword">Пароль</label>
+
+                        <input class="modal__form-input" type="password" id="registerPassword"
+                            autocomplete="new-password">
+
+                    </div>
+
+                    <div class="password-requirements" id="passwordRequirements">
+
+                        <p class="password-requirements__toggle" onclick="toggleRequirements()">
+
+                            Требования к паролю
+
+                        </p>
+
+                        <ul class="password-requirements__list">
+                            <li>Минимум 1 буква на латинице</li>
+                            <li>Минимум 1 цифра</li>
+                            <li>Длина пароля 8–16 символов</li>
+                        </ul>
+
+                    </div>
+
+                    <p class="modal__form-error-register-password hidden"></p>
+
+                    <div class="modal__form-group" id="confirmPasswordGroup">
+
+                        <label for="confirmPassword">
+                            Подтвердите пароль
+                        </label>
+
+                        <input class="modal__form-input" type="password" id="confirmPassword"
+                            autocomplete="new-password">
+
+                        <p class="modal__form-error-confirm hidden"></p>
 
                     </div>
 
                     <button type="submit" class="modal__btn buttonMainGreen">
+
                         Продолжить
+
                     </button>
 
                     <a class="modal__btn-close" onclick="modalClose()">
+
                         Отмена
+
                     </a>
 
                 </form>
 
             </div>
+
         </div>
     </div>
 

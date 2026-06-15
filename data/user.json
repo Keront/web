@@ -22,5 +22,21 @@
     {
         "email": "q@q.q12",
         "password": "qqqqqqq1"
+    },
+    {
+        "email": "w@w.w",
+        "password": "wwwwwww2"
+    },
+    {
+        "email": "e@e.e",
+        "password": "eeeeeee3"
+    },
+    {
+        "email": "a@a.a",
+        "password": "aaaaaaa1"
+    },
+    {
+        "email": "a@a.a1",
+        "password": "qqqqqqq1"
     }
 ]

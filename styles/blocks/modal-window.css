@@ -159,3 +159,18 @@
     font-size: 18px;
     word-break: break-word;
 }
+
+.hidden {
+    display: none;
+}
+
+.auth-switch__item {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.auth-switch.login .auth-switch__slider {
+    transform: translateX(100%);
+}

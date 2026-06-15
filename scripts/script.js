@@ -1,143 +1,429 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const swiper = new Swiper('.mainWithSlider__slider', {
+document.addEventListener("DOMContentLoaded", () => {
+
+    /*
+    |--------------------------------------------------------------------------
+    | Swiper
+    |--------------------------------------------------------------------------
+    */
+
+    new Swiper(".mainWithSlider__slider", {
         loop: true,
-        // speed:500,
-        // Добавляем этот блок:
+
         autoplay: {
-            delay: 5000, // Пауза между слайдами в миллисекундах (3 секунды)
-            disableOnInteraction: false, // Автоплей НЕ остановится, если вы кликните по слайдеру
+            delay: 5000,
+            disableOnInteraction: false
         },
 
         observer: true,
         observeParents: true,
         watchOverflow: true,
+
         pagination: {
-            el: '.mainWithSlider__sliderZone .swiper-pagination',
+            el: ".mainWithSlider__sliderZone .swiper-pagination",
             clickable: true,
-            renderBullet: function (index, className) {
-                return '<span class="' + className + '"></span>';
-            },
-        },
+
+            renderBullet(index, className) {
+                return `<span class="${className}"></span>`;
+            }
+        }
     });
+
+    /*
+    |--------------------------------------------------------------------------
+    | Прелоадер
+    |--------------------------------------------------------------------------
+    */
+
+    setTimeout(() => {
+
+        const preloader = document.querySelector(".preloader");
+
+        if (preloader) {
+            preloader.innerHTML = "";
+            preloader.style.display = "none";
+        }
+
+    }, 500);
+
+    /*
+    |--------------------------------------------------------------------------
+    | Элементы формы
+    |--------------------------------------------------------------------------
+    */
+
+    const authSwitch = document.getElementById("authSwitch");
+
+    const registerTab = document.getElementById("registerTab");
+    const loginTab = document.getElementById("loginTab");
+
+    const emailInput = document.getElementById("email");
+
+    const loginPasswordGroup =
+        document.getElementById("loginPasswordGroup");
+
+    const registerPasswordGroup =
+        document.getElementById("registerPasswordGroup");
+
+    const confirmPasswordGroup =
+        document.getElementById("confirmPasswordGroup");
+
+    const passwordRequirements =
+        document.getElementById("passwordRequirements");
+
+    const registerPasswordInput =
+        document.getElementById("registerPassword");
+
+    const confirmInput =
+        document.getElementById("confirmPassword");
+
+    const emailError = document.querySelector(
+        ".modal__form-error-email"
+    );
+
+    const passwordError = document.querySelector(
+        ".modal__form-error-register-password"
+    );
+
+    const confirmError = document.querySelector(
+        ".modal__form-error-confirm"
+    );
+
+    window.currentMode = "register";
+
+    /*
+    |--------------------------------------------------------------------------
+    | Переключение режимов
+    |--------------------------------------------------------------------------
+    */
+
+    registerTab?.addEventListener("click", () => {
+
+        window.currentMode = "register";
+
+        authSwitch?.classList.remove("login");
+
+        loginPasswordGroup?.classList.add("hidden");
+
+        registerPasswordGroup?.classList.remove("hidden");
+
+        confirmPasswordGroup?.classList.remove("hidden");
+
+        passwordRequirements?.classList.remove("hidden");
+
+        clearValidation();
+    });
+
+    loginTab?.addEventListener("click", () => {
+
+        window.currentMode = "login";
+
+        authSwitch?.classList.add("login");
+
+        loginPasswordGroup?.classList.remove("hidden");
+
+        registerPasswordGroup?.classList.add("hidden");
+
+        confirmPasswordGroup?.classList.add("hidden");
+
+        passwordRequirements?.classList.add("hidden");
+
+        clearValidation();
+
+        document.getElementById("loginPassword")?.focus();
+    });
+
+    /*
+    |--------------------------------------------------------------------------
+    | Проверка email
+    |--------------------------------------------------------------------------
+    */
+
+    emailInput?.addEventListener("blur", checkEmailExists);
+
+    async function checkEmailExists() {
+
+        if (window.currentMode !== "register") {
+            return;
+        }
+
+        const email = emailInput.value.trim();
+
+        if (!email) {
+            return;
+        }
+
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailPattern.test(email)) {
+            return;
+        }
+
+        try {
+
+            const response = await fetch(
+                "./api/server.php",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        action: "checkEmail",
+                        email
+                    })
+                }
+            );
+
+            const result = await response.json();
+
+            if (result.exists) {
+
+                showError(
+                    emailError,
+                    "Пользователь уже существует"
+                );
+
+            } else {
+
+                showSuccess(
+                    emailError,
+                    "Email доступен"
+                );
+            }
+
+        } catch (error) {
+
+            console.error(error);
+        }
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Валидация
+    |--------------------------------------------------------------------------
+    */
+
+    emailInput?.addEventListener("input", validateForm);
+
+    registerPasswordInput?.addEventListener(
+        "input",
+        validateForm
+    );
+
+    confirmInput?.addEventListener(
+        "input",
+        validateForm
+    );
+
+    function validateForm() {
+
+        const email = emailInput?.value.trim() || "";
+
+        const password =
+            registerPasswordInput?.value.trim() || "";
+
+        const confirm =
+            confirmInput?.value.trim() || "";
+
+        clearValidation();
+
+        if (email.length > 0) {
+
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailPattern.test(email)) {
+
+                showError(
+                    emailError,
+                    "Введите корректный email"
+                );
+            }
+        }
+
+        if (
+            window.currentMode === "register" &&
+            password.length > 0
+        ) {
+
+            const validPassword =
+                password.length >= 8 &&
+                password.length <= 16 &&
+                /[A-Za-z]/.test(password) &&
+                /\d/.test(password);
+
+            if (!validPassword) {
+
+                showError(
+                    passwordError,
+                    "Пароль не соответствует требованиям"
+                );
+
+            } else {
+
+                showSuccess(
+                    passwordError,
+                    "Пароль соответствует требованиям"
+                );
+            }
+        }
+
+        if (
+            window.currentMode === "register" &&
+            confirm.length > 0
+        ) {
+
+            if (password !== confirm) {
+
+                showError(
+                    confirmError,
+                    "Пароли не совпадают"
+                );
+
+            } else {
+
+                showSuccess(
+                    confirmError,
+                    "Пароли совпадают"
+                );
+            }
+        }
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Лайки
+    |--------------------------------------------------------------------------
+    */
+
+    initLikes();
 });
 
+
+function clearValidation() {
+
+    document
+        .querySelectorAll(
+            ".modal__form-error-email, " +
+            ".modal__form-error-password, " +
+            ".modal__form-error-register-password, " +
+            ".modal__form-error-confirm"
+        )
+        .forEach(item => {
+
+            item.textContent = "";
+
+            item.classList.add("hidden");
+            item.classList.remove("error");
+            item.classList.remove("success");
+        });
+}
+
+function showError(element, text) {
+
+    if (!element) return;
+
+    element.classList.remove("hidden");
+    element.classList.remove("success");
+    element.classList.add("error");
+
+    element.textContent = text;
+}
+
+function showSuccess(element, text) {
+
+    if (!element) return;
+
+    element.classList.remove("hidden");
+    element.classList.remove("error");
+    element.classList.add("success");
+
+    element.textContent = text;
+}
+/*
+|--------------------------------------------------------------------------
+| Модальное окно
+|--------------------------------------------------------------------------
+*/
+
 function modalOpen() {
-    const modal = document.querySelector('.modal');
+
+    const modal = document.querySelector(".modal");
+
     if (modal) {
         modal.style.display = "flex";
     }
 }
+
 function modalClose() {
-    const modal = document.querySelector('.modal');
-    if (modal) {
-        modal.style.display = "none";
-    }
+
+    const modal = document.querySelector(".modal");
+
+    if (!modal) return;
+
+    modal.style.display = "none";
+
+    document.getElementById("registerForm")?.reset();
+
+    document.getElementById("loginPassword").value = "";
+
+    document.getElementById("registerPassword").value = "";
+
+    document.getElementById("confirmPassword").value = "";
+
+    clearValidation();
+
+    document
+        .querySelector(".password-requirements__list")
+        ?.style.setProperty("display", "none");
+
+    document
+        .getElementById("authSwitch")
+        ?.classList.remove("login");
+
+    document
+        .getElementById("loginPasswordGroup")
+        ?.classList.add("hidden");
+
+    document
+        .getElementById("registerPasswordGroup")
+        ?.classList.remove("hidden");
+
+    document
+        .getElementById("confirmPasswordGroup")
+        ?.classList.remove("hidden");
+
+    document
+        .getElementById("passwordRequirements")
+        ?.classList.remove("hidden");
+
+    window.currentMode = "register";
 }
-setTimeout(() => {
-    const preloader = document.querySelector('.preloader');
-    if (preloader) {
-        preloader.innerHTML = '';
-        preloader.style.display = "none";
-    }
-}, 500);
-
-document.addEventListener('DOMContentLoaded', () => {
-
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
-
-    const emailError = document.querySelector('.modal__form-error-email');
-    const passwordError = document.querySelector('.modal__form-error-password');
-
-    emailInput.addEventListener('input', validateForm);
-    passwordInput.addEventListener('input', validateForm);
-
-    function validateForm() {
-        const email = emailInput.value.trim();
-        const password = passwordInput.value.trim();
-
-        // =====================
-        // EMAIL
-        // =====================
-
-        const emailParts = email.split('@');
-
-        if (email.length === 0) {
-            emailError.classList.add('hidden');
-        } 
-        else if (
-            emailParts.length !== 2 ||
-            emailParts[0].length === 0 ||
-            emailParts[1].length === 0
-        ) {
-            emailError.classList.remove('hidden');
-            emailError.classList.remove('success');
-            emailError.classList.add('error');
-            emailError.textContent = "Введите корректный email (user@mail.com)";
-        } 
-        else {
-            const domain = emailParts[1];
-            const dotIndex = domain.indexOf('.');
-
-            if (dotIndex === -1) {
-                emailError.classList.remove('hidden');
-                emailError.classList.remove('success');
-                emailError.classList.add('error');
-                emailError.textContent = "В домене должна быть точка (mail.com)";
-            } 
-            else {
-                const name = domain.slice(0, dotIndex);
-                const tld = domain.slice(dotIndex + 1);
-
-                if (!name || !tld) {
-                    emailError.classList.remove('hidden');
-                    emailError.classList.remove('success');
-                    emailError.classList.add('error');
-                    emailError.textContent = "Неверный формат домена";
-                } 
-                else {
-                    emailError.classList.remove('hidden');
-                    emailError.classList.remove('error');
-                    emailError.classList.add('success');
-                    emailError.textContent = "Email соответствует требованиям";
-                }
-            }
-        }
-
-        // =====================
-        // PASSWORD
-        // =====================
-
-        const hasMinLength = password.length >= 8;
-        const hasMaxLength = password.length <= 16;
-        const hasNumber = /\d/.test(password);
-        const hasLetter = /[a-zA-Z]/.test(password);
-
-        if (password.length === 0) {
-            passwordError.classList.add('hidden');
-        } 
-        else if (!hasMinLength || !hasMaxLength || !hasNumber || !hasLetter) {
-            passwordError.classList.remove('hidden');
-            passwordError.classList.remove('success');
-            passwordError.classList.add('error');
-            passwordError.textContent = "Пароль не соответствует требованиям";
-        } 
-        else {
-            passwordError.classList.remove('hidden');
-            passwordError.classList.remove('error');
-            passwordError.classList.add('success');
-            passwordError.textContent = "Пароль соответствует требованиям";
-        }
-    }
-
-});
 
 function toggleRequirements() {
-    const list = document.querySelector('.password-requirements__list');
-    list.style.display = list.style.display === "block" ? "none" : "block";
+
+    const list = document.querySelector(
+        ".password-requirements__list"
+    );
+
+    if (!list) return;
+
+    list.style.display =
+        list.style.display === "block"
+            ? "none"
+            : "block";
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
+/*
+|--------------------------------------------------------------------------
+| Лайки
+|--------------------------------------------------------------------------
+*/
+
+async function initLikes() {
 
     const btn = document.getElementById("lampLikeBtn");
     const count = document.getElementById("lampLikeCount");
@@ -148,9 +434,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const response = await fetch("./api/server.php", {
             method: "POST",
+
             headers: {
                 "Content-Type": "application/json"
             },
+
             body: JSON.stringify({
                 action: "getLikes"
             })
@@ -161,6 +449,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         count.textContent = result.likes;
 
     } catch (error) {
+
         console.error(error);
     }
 
@@ -178,9 +467,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             const response = await fetch("./api/server.php", {
                 method: "POST",
+
                 headers: {
                     "Content-Type": "application/json"
                 },
+
                 body: JSON.stringify({
                     action: "addLike"
                 })
@@ -198,9 +489,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             btn.classList.add("liked");
 
         } catch (error) {
+
             console.error(error);
         }
-
     });
-
-});
+}
