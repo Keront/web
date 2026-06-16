@@ -168,7 +168,6 @@
     border: none;
     background: transparent;
     cursor: pointer;
-    font-family: inherit;
 }
 
 .auth-switch.login .auth-switch__slider {
