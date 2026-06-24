@@ -257,8 +257,8 @@
                             Подтвердите пароль
                         </label>
 
-                        <input class="modal__form-input" type="password" id="confirmPassword"
-                            autocomplete="new-password">
+                        <input class="modal__form-input" type="password" id="loginPassword" autocomplete="off" readonly
+                            onfocus="this.removeAttribute('readonly');">
 
                         <p class="modal__form-error-confirm hidden"></p>
 
